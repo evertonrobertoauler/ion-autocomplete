@@ -267,9 +267,11 @@ angular.module('ion-autocomplete', []).directive('ionAutocomplete', [
                     // focus on the search input field
                     if (searchInputElement.length > 0) {
                         searchInputElement[0].focus();
-                        setTimeout(function () {
-                            searchInputElement[0].focus();
-                        }, 0);
+
+                        // IE 11 problems with focus()
+                        [400, 600, 800, 1000, 1200].map(function(i) {
+                            setTimeout(function() { searchInputElement[0].focus(); }, i);
+                        });
                     }
 
                     // force the collection repeat to redraw itself as there were issues when the first items were added
