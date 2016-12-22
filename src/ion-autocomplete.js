@@ -154,7 +154,7 @@ angular.module('ion-autocomplete', []).directive('ionAutocomplete', [
                     ngModelController.$render();
 
                     // hide the container and the ionic backdrop if it is a single select to enhance usability
-                    if (ionAutocompleteController.maxSelectedItems == 1) {
+                    if (searchContainerDisplayed && ionAutocompleteController.maxSelectedItems == 1) {
                         ionAutocompleteController.hideModal();
                     }
 
